@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Map — Cyber Risk Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body dir="ltr">
+<canvas id="bg-canvas"></canvas>
+<div class="glow glow--tl"></div><div class="glow glow--br"></div>
+<div class="grid-overlay"></div>
+
+<div class="wrap">
+  <header class="header">
+    <div class="header__inner">
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <a class="brand" href="index.html">
+        <img src="img/logo1.png" alt="Logo" class="brand__logo" onerror="this.style.display='none'">
+        <div class="brand__text">
+          <span class="brand__title" data-i18n="brand.title">Cyber Risk Map — Hail Municipality</span>
+          <span class="brand__sub" data-i18n="brand.sub">Cybersecurity Risk Platform</span>
+        </div>
+      </a>
+      <div class="header__actions">
+        <button class="hdr-btn" id="langBtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lbl" id="langLabel">عربي</span></button>
+        <button class="hdr-btn" id="loginBtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span class="lbl" data-i18n="btn.login">Login</span></button>
+      </div>
+    </div>
+  </header>
+
+  <aside class="drawer" id="drawer">
+    <div class="drawer__head">
+      <div style="display:flex;align-items:center;gap:.7rem">
+        <img src="img/logo1.png" alt="" style="width:34px;height:34px;object-fit:contain" onerror="this.style.display='none'">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:.9rem">Cyber Risk Map</span>
+      </div>
+      <button class="drawer__close" id="drawerClose">&times;</button>
+    </div>
+    <nav class="drawer__nav">
+      <a class="drawer__link" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="drawer__link" href="system.html" data-i18n="nav.assets">Assets</a>
+      <a class="drawer__link active" href="map.html" data-i18n="nav.map">Risk Map</a>
+      <a class="drawer__link" href="impact.html" data-i18n="nav.impact">Impact Analysis</a>
+      <a class="drawer__link" href="reports.html" data-i18n="nav.reports">Reports</a>
+      <a class="drawer__link" href="about.html" data-i18n="nav.about">About</a>
+    </nav>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <section class="page-hero container">
+    <h1 data-i18n="page.map.title">Risk Map</h1>
+  </section>
+
+  <section class="section container" style="padding-top:0">
+    <div class="map-viewport">
+      <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" id="networkMap"></svg>
+      <div class="map-legend-box">
+        <h4 data-i18n="legend.title">Legend</h4>
+        <div class="map-legend-row"><span class="line line--solid"></span><span data-i18n="legend.documented">Documented</span></div>
+        <div class="map-legend-row"><span class="line line--dashed"></span><span data-i18n="legend.proposed">Proposed</span></div>
+        <div class="map-legend-row"><span class="dot" style="background:#B91C1C"></span><span data-i18n="risk.critical">Critical</span></div>
+        <div class="map-legend-row"><span class="dot" style="background:#C2410C"></span><span data-i18n="risk.high">High</span></div>
+        <div class="map-legend-row"><span class="dot" style="background:#B45309"></span><span data-i18n="risk.medium">Medium</span></div>
+        <div class="map-legend-row"><span class="dot" style="background:#047857"></span><span data-i18n="risk.low">Low</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="img/logo1.png" alt="Logo" class="footer__logo" onerror="this.style.display='none'">
+        <div>
+          <div class="footer__title">Cyber Risk Map</div>
+          <div class="footer__sub" data-i18n="footer.sub">Hail Municipality</div>
+        </div>
+      </div>
+      <p class="footer__copy" id="footerCopy">© 2026 Cyber Risk Map — Hail Municipality. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<div class="modal" id="systemModal">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" id="modalBox"></div>
+</div>
+
+<div class="modal" id="loginModal">
+  <div class="modal__backdrop" data-login-close></div>
+  <div class="modal__box">
+    <div class="modal__header">
+      <button class="modal__close" data-login-close>&times;</button>
+      <div class="modal__title" data-i18n="login.title">Login</div>
+    </div>
+    <form class="login-form" id="loginForm">
+      <div class="login-error" id="loginError" data-i18n="login.error">Invalid username or password.</div>
+      <div class="login-field">
+        <label for="loginUser" data-i18n="login.user">Username</label>
+        <input type="text" id="loginUser" autocomplete="username">
+      </div>
+      <div class="login-field">
+        <label for="loginPass" data-i18n="login.pass">Password</label>
+        <input type="password" id="loginPass" autocomplete="current-password">
+      </div>
+      <button type="submit" class="login-submit" data-i18n="login.submit">Sign In</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

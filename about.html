@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Cyber Risk Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body dir="ltr">
+<canvas id="bg-canvas"></canvas>
+<div class="glow glow--tl"></div><div class="glow glow--br"></div>
+<div class="grid-overlay"></div>
+
+<div class="wrap">
+  <header class="header">
+    <div class="header__inner">
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <a class="brand" href="index.html">
+        <img src="img/logo1.png" alt="Logo" class="brand__logo" onerror="this.style.display='none'">
+        <div class="brand__text">
+          <span class="brand__title" data-i18n="brand.title">Cyber Risk Map — Hail Municipality</span>
+          <span class="brand__sub" data-i18n="brand.sub">Cybersecurity Risk Platform</span>
+        </div>
+      </a>
+      <div class="header__actions">
+        <button class="hdr-btn" id="langBtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lbl" id="langLabel">عربي</span></button>
+        <button class="hdr-btn" id="loginBtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span class="lbl" data-i18n="btn.login">Login</span></button>
+      </div>
+    </div>
+  </header>
+
+  <aside class="drawer" id="drawer">
+    <div class="drawer__head">
+      <div style="display:flex;align-items:center;gap:.7rem">
+       <img src="img/logo1.png" alt="" style="width:34px;height:34px;object-fit:contain" onerror="this.style.display='none'">
+        <span style="font-family:'Space Grotesk';font-weight:600;font-size:.9rem">Cyber Risk Map</span>
+      </div>
+      <button class="drawer__close" id="drawerClose">&times;</button>
+    </div>
+    <nav class="drawer__nav">
+      <a class="drawer__link" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="drawer__link" href="system.html" data-i18n="nav.assets">Assets</a>
+      <a class="drawer__link" href="map.html" data-i18n="nav.map">Risk Map</a>
+      <a class="drawer__link" href="impact.html" data-i18n="nav.impact">Impact Analysis</a>
+      <a class="drawer__link" href="reports.html" data-i18n="nav.reports">Reports</a>
+      <a class="drawer__link active" href="about.html" data-i18n="nav.about">About</a>
+    </nav>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <section class="page-hero container">
+    <h1 data-i18n="page.about.title">About the Platform</h1>
+  </section>
+
+  <section class="section container" style="padding-top:0">
+    <div class="about-stack">
+      <div class="about-block">
+        <div class="about-block__label" data-i18n="about.1.label">Project Overview</div>
+        <h2 class="about-block__title" data-i18n="about.1.title">A unified cyber risk view for Hail Municipality's digital assets</h2>
+        <div class="about-block__text" id="about-text-1"></div>
+      </div>
+
+      <div class="about-block">
+        <div class="about-block__label" data-i18n="about.2.label">Scope and Methodology</div>
+        <h2 class="about-block__title" data-i18n="about.2.title">How assets and dependencies are classified</h2>
+        <div class="about-block__text" id="about-text-2"></div>
+      </div>
+
+      <div class="about-block">
+        <div class="about-block__label" data-i18n="about.3.label">Applications Covered</div>
+        <h2 class="about-block__title" data-i18n="about.3.title">Public services included in the registry</h2>
+        <div class="about-block__text">
+          <p data-i18n="about.3.intro">The registry currently includes the following public-facing services and platforms.</p>
+        </div>
+        <div class="about-links">
+          <a class="about-link" href="https://hail.gov.sa" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.app1">Hail Municipality Portal</span>
+              <span class="about-link__url">hail.gov.sa</span>
+            </span>
+          </a>
+          <a class="about-link" href="https://balady.gov.sa" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.app2">Baladi Platform</span>
+              <span class="about-link__url">balady.gov.sa</span>
+            </span>
+          </a>
+          <a class="about-link" href="https://forsah.momah.gov.sa" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><path d="M4 20 L12 10 L20 20 Z"/><path d="M14 6 L20 6 L20 12"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.app3">Forsah Platform</span>
+              <span class="about-link__url">forsah.momah.gov.sa</span>
+            </span>
+          </a>
+          <a class="about-link" href="https://momah.gov.sa" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.app4">Ministry of Municipalities</span>
+              <span class="about-link__url">momah.gov.sa</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-block">
+        <div class="about-block__label" data-i18n="about.4.label">References and Data Sources</div>
+        <h2 class="about-block__title" data-i18n="about.4.title">Frameworks and vulnerability databases</h2>
+        <div class="about-block__text">
+          <p data-i18n="about.4.intro">The project draws on publicly available references for threat intelligence, cybersecurity guidance, and municipal service information. Each source serves a distinct role in the analysis.</p>
+        </div>
+        <div class="about-links">
+          <a class="about-link" href="https://nca.gov.sa" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><path d="M12 2 L20 6 V13 C20 17.5 16.5 20.5 12 22 C7.5 20.5 4 17.5 4 13 V6 Z"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.ref1.t">National Cybersecurity Authority (NCA)</span>
+              <span class="about-link__url" data-i18n="about.ref1.d">Reference for cybersecurity controls and frameworks</span>
+            </span>
+          </a>
+          <a class="about-link" href="https://nvd.nist.gov" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.ref2.t">National Vulnerability Database (NVD)</span>
+              <span class="about-link__url" data-i18n="about.ref2.d">Reference for published vulnerability information</span>
+            </span>
+          </a>
+          <a class="about-link" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.ref3.t">CISA KEV Catalog</span>
+              <span class="about-link__url" data-i18n="about.ref3.d">Reference for confirmed exploited vulnerabilities</span>
+            </span>
+          </a>
+          <a class="about-link" href="https://dga.gov.sa" target="_blank" rel="noopener">
+            <span class="about-link__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <span class="about-link__text">
+              <span class="about-link__name" data-i18n="about.ref4.t">Digital Government Authority (DGA)</span>
+              <span class="about-link__url" data-i18n="about.ref4.d">Reference for digital government frameworks</span>
+            </span>
+          </a>
+        </div>
+        <div class="about-block__text" style="margin-top:1.25rem">
+          <p data-i18n="about.4.note">These references are used to support threat analysis and terminology. They are not live data integrations. The asset data shown within the platform is illustrative and intended for modeling purposes.</p>
+        </div>
+      </div>
+
+      <div class="about-block">
+        <div class="about-block__label" data-i18n="about.5.label">Inquiries</div>
+        <h2 class="about-block__title" data-i18n="about.5.title">Contact information</h2>
+        <div class="about-contact">
+          <div class="about-contact__item">
+            <div class="about-contact__label" data-i18n="about.c1">Institution</div>
+            <div class="about-contact__value" data-i18n="about.c1.v">Hail Municipality</div>
+          </div>
+          <div class="about-contact__item">
+            <div class="about-contact__label" data-i18n="about.c2">Department</div>
+            <div class="about-contact__value" data-i18n="about.c2.v">Cybersecurity Unit</div>
+          </div>
+          <div class="about-contact__item">
+            <div class="about-contact__label" data-i18n="about.c3">Email</div>
+            <div class="about-contact__value">cyber@hail.gov.sa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="img/logo1.png" alt="Logo" class="footer__logo" onerror="this.style.display='none'">
+        <div>
+          <div class="footer__title">Cyber Risk Map</div>
+          <div class="footer__sub" data-i18n="footer.sub">Hail Municipality</div>
+        </div>
+      </div>
+      <p class="footer__copy" id="footerCopy">© 2026 Cyber Risk Map — Hail Municipality. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<div class="modal" id="systemModal">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" id="modalBox"></div>
+</div>
+
+<div class="modal" id="loginModal">
+  <div class="modal__backdrop" data-login-close></div>
+  <div class="modal__box">
+    <div class="modal__header">
+      <button class="modal__close" data-login-close>&times;</button>
+      <div class="modal__title" data-i18n="login.title">Login</div>
+    </div>
+    <form class="login-form" id="loginForm">
+      <div class="login-error" id="loginError" data-i18n="login.error">Invalid username or password.</div>
+      <div class="login-field">
+        <label for="loginUser" data-i18n="login.user">Username</label>
+        <input type="text" id="loginUser" autocomplete="username">
+      </div>
+      <div class="login-field">
+        <label for="loginPass" data-i18n="login.pass">Password</label>
+        <input type="password" id="loginPass" autocomplete="current-password">
+      </div>
+      <button type="submit" class="login-submit" data-i18n="login.submit">Sign In</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

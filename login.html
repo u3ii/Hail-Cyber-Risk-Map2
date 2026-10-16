@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Cyber Risk Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.login-page{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:2rem 1rem;position:relative;z-index:1;
+}
+.login-card{
+  width:100%;max-width:420px;
+  background:linear-gradient(160deg,#008F76 0%,#006B58 50%,#001D2B 100%);
+  border-radius:22px;
+  box-shadow:0 24px 60px rgba(0,29,43,.35), 0 4px 14px rgba(0,143,118,.25);
+  overflow:hidden;position:relative;
+  animation:loginFade .5s cubic-bezier(.4,0,.2,1);
+  border:1px solid rgba(255,255,255,.08);
+}
+@keyframes loginFade{
+  from{opacity:0;transform:translateY(16px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.login-card__head{
+  padding:2.25rem 2rem 1.5rem;text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+.login-card__logo{
+  width:110px;height:110px;margin:0 auto 1.25rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.login-card__logo img{
+  width:100%;height:100%;object-fit:contain;
+  filter:drop-shadow(0 6px 16px rgba(255,255,255,.15));
+}
+.login-card__title{
+  font-family:'Space Grotesk';font-size:1.5rem;font-weight:700;
+  color:#fff;margin:0;letter-spacing:-.02em;
+}
+body[dir="rtl"] .login-card__title{font-family:'Tajawal';letter-spacing:0}
+.login-card__brand{
+  font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:#2DD4BF;font-weight:700;margin-bottom:.4rem;
+}
+body[dir="rtl"] .login-card__brand{letter-spacing:0}
+.login-card__body{padding:1.75rem 2rem 2rem}
+
+/* Inputs on dark background */
+.login-card .login-field label{
+  color:#fff !important;font-weight:700;
+}
+.login-card .login-field input{
+  background:rgba(255,255,255,.1) !important;
+  border:1.5px solid rgba(255,255,255,.2) !important;
+  color:#fff !important;
+}
+.login-card .login-field input::placeholder{
+  color:rgba(255,255,255,.5);
+}
+.login-card .login-field input:focus{
+  background:rgba(255,255,255,.15) !important;
+  border-color:#2DD4BF !important;
+  box-shadow:0 0 0 3px rgba(45,212,191,.25) !important;
+}
+.login-card .login-eye{
+  color:rgba(255,255,255,.7);
+}
+.login-card .login-eye:hover{
+  background:rgba(255,255,255,.1);
+  color:#2DD4BF;
+}
+.login-card .login-error{
+  background:rgba(255,255,255,.12);
+  color:#FECACA;
+}
+.login-card .login-submit{
+  margin-top:.5rem;
+  background:#fff !important;
+  color:#006B58 !important;
+  box-shadow:0 6px 18px rgba(255,255,255,.2);
+  font-weight:700;
+}
+.login-card .login-submit:hover{
+  background:#F0FDF9 !important;
+  transform:translateY(-1px);
+  box-shadow:0 8px 22px rgba(255,255,255,.28);
+}
+
+.login-lang{position:fixed;top:1.5rem;left:1.5rem;z-index:100}
+body[dir="rtl"] .login-lang{left:auto;right:1.5rem}
+.login-lang button{
+  height:42px;padding:0 1.1rem;border-radius:11px;
+  border:1px solid rgba(255,255,255,.25);
+  background:linear-gradient(135deg,rgba(0,143,118,.9) 0%,rgba(0,29,43,.9) 100%);
+  backdrop-filter:blur(10px);color:#fff;font-family:inherit;
+  font-weight:600;font-size:.85rem;cursor:pointer;
+  display:inline-flex;align-items:center;gap:.5rem;
+  transition:.25s;box-shadow:0 6px 18px rgba(0,29,43,.2);
+}
+.login-lang button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,29,43,.3)}
+.login-lang svg{
+  width:15px;height:15px;
+  stroke:currentColor;fill:none;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+  flex-shrink:0;
+}
+.login-pass-wrap{position:relative}
+.login-pass-wrap input{padding-left:2.75rem}
+body[dir="rtl"] .login-pass-wrap input{padding-left:.9rem;padding-right:2.75rem}
+.login-eye{
+  position:absolute;top:50%;left:.55rem;transform:translateY(-50%);
+  width:32px;height:32px;border:0;background:transparent;
+  cursor:pointer;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);transition:.2s;
+}
+body[dir="rtl"] .login-eye{left:auto;right:.55rem}
+.login-eye svg{
+  width:17px;height:17px;
+  stroke:currentColor;fill:none;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+.login-card__foot{
+  padding:1rem 2rem 1.5rem;text-align:center;
+  font-size:.75rem;color:rgba(255,255,255,.5);
+  border-top:1px solid rgba(255,255,255,.1);
+}
+@media(max-width:520px){
+  .login-card__head{padding:1.75rem 1.5rem 1rem}
+  .login-card__body{padding:1.5rem 1.5rem 1.75rem}
+  .login-card__logo{width:88px;height:88px}
+  .login-card__title{font-size:1.35rem}
+  .login-lang{top:1rem;left:1rem}
+  body[dir="rtl"] .login-lang{right:1rem;left:auto}
+}
+</style>
+</head>
+<body dir="ltr">
+<canvas id="bg-canvas"></canvas>
+<div class="glow glow--tl"></div>
+<div class="glow glow--br"></div>
+<div class="grid-overlay"></div>
+
+<button class="login-lang" id="loginLangBtn" aria-label="Switch Language">
+  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+  <span id="loginLangLabel">عربي</span>
+</button>
+
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-card__head">
+      <div class="login-card__logo">
+        <img src="img/logo1.png" alt="Logo" onerror="this.style.display='none'">
+      </div>
+      <div class="login-card__brand" id="loginBrand">Cyber Risk Map</div>
+      <h1 class="login-card__title" id="loginTitle">Login</h1>
+    </div>
+
+    <div class="login-card__body">
+      <form class="login-form" id="loginForm">
+        <div class="login-error" id="loginError">Invalid username or password.</div>
+
+        <div class="login-field">
+          <label for="loginUser" id="loginUserLabel">Username</label>
+          <input type="text" id="loginUser" autocomplete="username" autofocus>
+        </div>
+
+        <div class="login-field">
+          <label for="loginPass" id="loginPassLabel">Password</label>
+          <div class="login-pass-wrap">
+            <input type="password" id="loginPass" autocomplete="current-password">
+            <button type="button" class="login-eye" id="loginEye" aria-label="Show password">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="login-submit" id="loginSubmit">Sign In</button>
+      </form>
+    </div>
+
+    <div class="login-card__foot" id="loginFoot">© 2026 Cyber Risk Map — Hail Municipality</div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
