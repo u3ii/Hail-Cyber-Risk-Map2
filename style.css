@@ -836,3 +836,87 @@ html, body {
 .assets-grid, .workspace {
   width: 100%;
 }
+/* ============================================================ */
+/* إصلاحات الجوال (Responsive Mobile Fixes)                       */
+/* ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. منع التمرير الأفقي نهائياً */
+  html, body {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 2. إصلاح الهيدر (Header) */
+  .header__inner {
+    padding: 0.5rem !important;
+    flex-wrap: nowrap;
+  }
+  .brand__title {
+    font-size: 0.8rem !important;
+    white-space: normal !important;
+    line-height: 1.2;
+  }
+  .hdr-btn .lbl {
+    display: none; /* إخفاء كلمة تسجيل الدخول وإبقاء الأيقونة */
+  }
+  .hdr-user {
+    font-size: 0.7rem !important;
+    padding: 0 0.5rem !important;
+    height: 32px;
+  }
+  .hdr-user span {
+    display: none; /* إخفاء كلمة Signed in as */
+  }
+
+  /* 3. إصلاح أرقام الإحصائيات (الصفحة الرئيسية) */
+  .stat__num {
+    font-size: 3rem !important;
+  }
+  .stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 4. إصلاح بطاقات الأصول (Assets) - عمود واحد فقط */
+  .assets-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .workspace__content {
+    padding: 1rem 0.5rem !important;
+  }
+
+  /* 5. إصلاح الجدول في صفحة التقارير (Reports) */
+  .report-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* يسمح بالتمرير داخل الجدول فقط */
+    white-space: nowrap;
+  }
+  
+  /* 6. إصلاح الشريط الجانبي (Sidebar Filters) */
+  .workspace__nav {
+    flex-wrap: wrap !important;
+    justify-content: center;
+  }
+  .workspace__item {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  /* 7. إصلاح خريطة المخاطر */
+  .map-viewport {
+    height: 60vh !important; /* تصغير الارتفاع ليناسب الجوال */
+    min-height: 400px !important;
+  }
+  .map-legend-box {
+    transform: scale(0.85);
+    transform-origin: bottom left;
+  }
+}
+
+/* إصلاح إضافي بسيط للجداول */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
