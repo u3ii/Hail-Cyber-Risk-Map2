@@ -837,9 +837,8 @@ html, body {
   width: 100%;
 }
 /* ============================================================ */
-/* إصلاحات الجوال (Responsive Mobile Fixes)                       */
+/* إصلاحات الجوال النهائية (Mobile Fixes)                         */
 /* ============================================================ */
-
 @media (max-width: 768px) {
   /* 1. منع التمرير الأفقي نهائياً */
   html, body {
@@ -847,76 +846,106 @@ html, body {
     overflow-x: hidden !important;
   }
 
-  /* 2. إصلاح الهيدر (Header) */
+  /* 2. تصغير العناوين الضخمة (الصفحة الرئيسية) */
+  .hero {
+    padding: 3rem 1rem !important;
+  }
+  .hero__title {
+    font-size: 2.2rem !important;
+  }
+
+  /* 3. تحويل الإحصائيات لعمود واحد وتصغير الخط */
+  .stats {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 1rem !important;
+  }
+  .stat {
+    padding: 1.5rem 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1.5px dashed rgba(0,143,118,.28) !important;
+  }
+  .stat:last-child {
+    border-bottom: 0 !important;
+  }
+  .stat__num {
+    font-size: 4rem !important; /* تصغير الرقم الضخم */
+  }
+
+  /* 4. إصلاح الهيدر (شريط التنقل العلوي) */
   .header__inner {
-    padding: 0.5rem !important;
-    flex-wrap: nowrap;
+    padding: 0.5rem 1rem !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
   }
   .brand__title {
     font-size: 0.8rem !important;
     white-space: normal !important;
-    line-height: 1.2;
+    line-height: 1.2 !important;
   }
-  .hdr-btn .lbl {
-    display: none; /* إخفاء كلمة تسجيل الدخول وإبقاء الأيقونة */
+  .brand__sub {
+    display: none !important; /* إخفاء الكلمة اللي تحت الاسم لتوفير مساحة */
   }
-  .hdr-user {
-    font-size: 0.7rem !important;
-    padding: 0 0.5rem !important;
-    height: 32px;
+  .hdr-btn span.lbl {
+    display: none !important; /* إخفاء كلمة تسجيل الدخول وإبقاء الأيقونة */
   }
   .hdr-user span {
-    display: none; /* إخفاء كلمة Signed in as */
+    display: none !important; /* إخفاء كلمة Admin وإبقاء النقطة الخضراء */
   }
 
-  /* 3. إصلاح أرقام الإحصائيات (الصفحة الرئيسية) */
-  .stat__num {
-    font-size: 3rem !important;
-  }
-  .stats {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* 4. إصلاح بطاقات الأصول (Assets) - عمود واحد فقط */
+  /* 5. إصلاح البطاقات (Assets) لتصير عمود واحد */
   .assets-grid {
     grid-template-columns: 1fr !important;
+    padding: 0 !important;
+  }
+  .workspace {
+    display: block !important;
+    border-radius: 0 !important;
   }
   .workspace__content {
-    padding: 1rem 0.5rem !important;
+    padding: 1rem !important;
+  }
+  .asset-card {
+    width: 100% !important;
+    margin-bottom: 1rem !important;
   }
 
-  /* 5. إصلاح الجدول في صفحة التقارير (Reports) */
+  /* 6. إصلاح الجدول (Reports) عشان ما يخرب الشاشة */
   .report-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto; /* يسمح بالتمرير داخل الجدول فقط */
-    white-space: nowrap;
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important; /* يخلي الجدول يتسحب بالعرض */
+    white-space: nowrap !important;
+    font-size: 0.8rem !important;
   }
-  
-  /* 6. إصلاح الشريط الجانبي (Sidebar Filters) */
-  .workspace__nav {
-    flex-wrap: wrap !important;
-    justify-content: center;
+  .report-table th, .report-table td {
+    padding: 0.5rem !important;
   }
-  .workspace__item {
-    flex: 1 1 auto;
-    justify-content: center;
+  #reports-content {
+    padding: 0.5rem !important;
+    border-radius: 0 !important;
+  }
+  .report-cards {
+    grid-template-columns: 1fr 1fr !important; /* بطاقتين في السطر */
   }
 
-  /* 7. إصلاح خريطة المخاطر */
+  /* 7. إصلاح الخريطة (Map) */
   .map-viewport {
-    height: 60vh !important; /* تصغير الارتفاع ليناسب الجوال */
+    height: 60vh !important;
     min-height: 400px !important;
+    border-radius: 0 !important;
   }
   .map-legend-box {
-    transform: scale(0.85);
-    transform-origin: bottom left;
+    transform: scale(0.8) !important;
+    transform-origin: bottom right !important; /* تصغير المفتاح */
   }
-}
 
-/* إصلاح إضافي بسيط للجداول */
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  /* 8. تصغير الفوتر */
+  .footer {
+    padding: 1.5rem 1rem !important;
+  }
+  .footer__brand {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
 }
