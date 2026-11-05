@@ -788,7 +788,7 @@ body[dir="rtl"] .modal__section h4{letter-spacing:0}
 
 /* ============ FOOTER ============ */
 .footer{
-  background:var(--green-dark);color:#fff;margin-top:4rem;
+  background: linear-gradient(135deg, #008F76 0%, #006D66 30%, #034E58 60%, #001D2B 100%);color:#fff;margin-top:4rem;
   border-top:1px solid rgba(0,143,118,.5);padding:2rem 1.5rem;
 }
 .footer__inner{
@@ -798,7 +798,7 @@ body[dir="rtl"] .modal__section h4{letter-spacing:0}
 }
 .footer__brand{display:flex;align-items:center;gap:1rem;justify-content:center}
 .footer__logo{
-  width:56px;height:56px;object-fit:contain;flex-shrink:0;
+  width:80px;height:80px;object-fit:contain;flex-shrink:0;
 }
 .footer__title{
   font-family:'Space Grotesk';font-size:1.05rem;font-weight:600;
