@@ -1,7 +1,7 @@
 /* ============================================================ */
 /* CYBER RISK MAP — Hail Municipality                            */
 /* ============================================================ */
-
+@import url('https://cdn.jsdelivr.net/gh/mokhtarbsaid/saudi-font/all.min.css');
 :root{
   /* Brand */
   --green:#008F76;
@@ -33,16 +33,15 @@ body{
   line-height:1.65;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-body[dir="rtl"]{font-family:'IBM Plex Sans Arabic','Tajawal',system-ui,sans-serif}
+body[dir="rtl"]{font-family:'saudi-font', system-ui, sans-serif !important;}
 
 h1,h2,h3,h4,h5{
   font-family:'Space Grotesk',sans-serif;
   font-weight:700;letter-spacing:-.02em;line-height:1.25;
 }
-body[dir="rtl"] h1,body[dir="rtl"] h2,body[dir="rtl"] h3,
-body[dir="rtl"] h4,body[dir="rtl"] h5{
-  font-family:'Tajawal','IBM Plex Sans Arabic',sans-serif;
-}
+body[dir="rtl"] { font-family: 'saudi-font', system-ui, sans-serif !important; }
+body[dir="rtl"] h1, body[dir="rtl"] h2, body[dir="rtl"] h3,
+body[dir="rtl"] h4, body[dir="rtl"] h5 { font-family: 'saudi-font', sans-serif !important; }
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 
@@ -821,4 +820,19 @@ body[dir="rtl"] .footer__title{font-family:'Tajawal'}
   .report-table th,.report-table td{padding:.7rem .7rem;font-size:.8rem}
   #reports-content{padding:1rem}
   .map-viewport{height:calc(100vh - 220px);min-height:420px}
+}
+/* إصلاح عرض الجوال */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+/* جعل الخريطة تتكيف مع عرض الشاشة */
+.map-viewport {
+  width: 100%;
+  height: calc(100vh - 250px); /* تعديل الارتفاع ليناسب الجوال */
+}
+/* منع البطاقات من التمدد خارج الشاشة */
+.assets-grid, .workspace {
+  width: 100%;
 }
