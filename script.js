@@ -761,14 +761,19 @@ function renderMap(){
     cat.setAttribute('fill', '#64748B');
     cat.textContent = a.category;
     g.appendChild(cat);
-
-    g.addEventListener('mouseenter', () => highlightOnly(a.id));
+g.addEventListener('mouseenter', () => highlightOnly(a.id));
     g.addEventListener('mouseleave', () => clearHighlight());
+    g.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      highlightOnly(a.id);
+      openAssetModal(a, false);
+    }, {passive: false});
     g.addEventListener('click', e => {
       e.stopPropagation();
       highlightOnly(a.id);
       openAssetModal(a, false);
     });
+   
 
     svg.appendChild(g);
   });
